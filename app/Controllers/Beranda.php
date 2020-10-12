@@ -4,6 +4,8 @@ namespace App\Controllers;
 class Beranda extends BaseController {
 
     public function index() {
-        return view('beranda_v');
+        echo view('header_v');
+        echo view('beranda_v');
+        echo view('footer_v');
     }
 }
