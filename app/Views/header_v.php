@@ -29,16 +29,16 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item <?php echo ($segment=='Beranda') ? 'active': '' ?>">
                     <a class="nav-link" href="<?php echo site_url('Beranda'); ?>">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?php echo ($segment=='Program_Studi') ? 'active': '' ?>">
                     <a class="nav-link" href="<?php echo site_url('Program_Studi'); ?>">Program Studi</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?php echo ($segment=='Mahasiswa') ? 'active': '' ?>">
                     <a class="nav-link" href="<?php echo site_url('Mahasiswa'); ?>">Mahasiswa</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown <?php echo ($segment=='Agama' || $segment=='Hobi') ? 'active': ''?>">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Data Master
                     </a>

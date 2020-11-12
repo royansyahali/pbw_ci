@@ -2,28 +2,23 @@
 
 use CodeIgniter\Database\Migration;
 
-class Prodi extends Migration
+class Pengguna extends Migration
 {
-	private $table = 'prodi';
-
+	private $table = 'pengguna';
 	public function up()
 	{
 		$this->forge->addField([
-			'kode_prodi' => [
-					'type'           => 'VARCHAR',
-					'constraint'     => '3',
-			],
-			'nama_prodi' => [
+			'username' => [
 					'type'           => 'VARCHAR',
 					'constraint'     => '100',
 			],
-			'ketua_prodi' => [
-					'type'           => 'VARCHAR',
-					'constraint'     => '100',
-			],
+			'password' => [
+					'type'           => 'TEXT',
+			]
 		]);
-		$this->forge->addKey('kode_prodi', true);
+		$this->forge->addKey('username', true);
 		$this->forge->createTable($this->table);
+		
 	}
 
 	//--------------------------------------------------------------------

@@ -23,6 +23,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-sm">Simpan</button>
+                <button type="button" class="btn btn-warning btn-sm" id="cancel">Batal</button>
             </form>
         </div>
     </section>

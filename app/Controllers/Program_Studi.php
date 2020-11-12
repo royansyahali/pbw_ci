@@ -14,26 +14,30 @@ class Program_Studi extends BaseController {
     }
 
     public function index() {
+        $data['segment'] = $this->segment;
         $data['session'] = $this->session->getFlashdata('response');
+        $data['isLogin'] = $this->session->get('username');
         $data['dataProdi'] = $this->prodi->get()->getResult();
 
-        echo view('header_v');
+        echo view('header_v',$data);
         echo view('program_studi_v', $data);
         echo view('footer_v');
     }
 
     public function add() {
-        echo view('header_v');
+        $data['segment'] = $this->segment;
+        echo view('header_v',$data);
         echo view('program_studi_form_v');
         echo view('footer_v');
     }
 
     public function edit($id) {
+        $data['segment'] = $this->segment;
         $where = ['kode_prodi' => $id];
 
         $data['dataProdi'] = $this->prodi->get($where)->getResult()[0];
         
-        echo view('header_v');
+        echo view('header_v',$data);
         echo view('program_studi_form_v', $data);
         echo view('footer_v');
     }
