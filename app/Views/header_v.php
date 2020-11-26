@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 
+    <!-- DataTables Css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/af-2.3.5/b-1.6.5/b-colvis-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/datatables.min.css"/>
+    
     <title>IPB University</title>
   </head>
   <body>
