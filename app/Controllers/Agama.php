@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Agama_Model;
+use CodeIgniter\HTTP\Response;
 
 class Agama extends BaseController {
 
@@ -89,5 +90,40 @@ class Agama extends BaseController {
         }
 
         return redirect()->to(site_url('Agama'));
+    }
+
+    public function chart(){
+        $data['segment'] = $this->segment;
+        echo view('header_v',$data);
+        echo view('agama_chart_v');
+        echo view('footer_v');
+    }
+
+    public function chart_data(){
+        $data = $this->agamaModel->get_sebaran_mahasiswa()->getResult();
+
+        $chartData = [];
+        foreach ($data as $row) :
+            array_push($chartData,[
+            'label'=>$row->agama,
+            'value'=>$row->jumlah_mahasiswa
+        ]);
+        endforeach;
+
+        $response = [
+            // Chart Configuration
+            "chart"=> [
+                "caption" => "Grafik Sebaran Mahasiswa",
+                "subCaption" => "Berdasarkan Agama",
+                "xAxisName" => "Agama",
+                "yAxisName" => "Jumlah Mahasiswa",
+                //"numberSuffix" => "K",
+                "theme" => "candy",
+            ],
+            // Chart Data
+            "data"=> $chartData
+        ];
+
+        echo json_encode($response);
     }
 }

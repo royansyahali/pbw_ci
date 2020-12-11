@@ -7,9 +7,7 @@ class Program_Studi extends BaseController {
 
     public function __construct() {
         $this->session = \Config\Services::session();
-
         $db = \Config\Database::connect();
-
         $this->prodi = new Program_Studi_Model($db);
     }
 
